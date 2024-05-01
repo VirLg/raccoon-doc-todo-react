@@ -1,35 +1,16 @@
 import React from 'react';
-import { TodoDiv, Button } from './TodoItem.styled';
 
-const TodoItem = ({ el, idx, removeTodo, checked, updateTodo }) => {
-  const { id, name, textCase, complited } = el;
-
-  return (
-    <TodoDiv className="todo" onClick={() => updateTodo(idx)}>
-      <h4>name: {name}</h4>
-      <h3
-        style={{
-          marginLeft: 'auto',
-          marginRight: '150px',
-          paddingTop: '0',
-          marginTop: '6px',
-        }}
-      >
-        task: {textCase}
-      </h3>
-      <input
-        style={{
-          marginRight: '18px',
-        }}
-        type="checkbox"
-        onChange={() => checked(id)}
-        checked={complited}
-      />
-      <Button type="button" onClick={() => removeTodo(id)}>
-        Delete
-      </Button>
-    </TodoDiv>
-  );
+const TodoItem = ({ data }) => {
+  console.log('data', data);
+  return data.map((el, idx) => {
+    return (
+      <div key={idx} className="flex items-center outline m-3">
+        <div className="">{el.name}</div>
+        <div>{el.task}</div>
+        <button type="button">Del</button>
+      </div>
+    );
+  });
 };
 
 export default TodoItem;

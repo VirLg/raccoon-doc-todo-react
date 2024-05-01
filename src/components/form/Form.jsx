@@ -1,34 +1,32 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { activIdxSelector } from '../../redux/selectors';
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-const Form = ({ addTask }) => {
-  const activIdx = useSelector(activIdxSelector);
-  const [name, setName] = useState('');
-  const [textCase, setTextCase] = useState('');
-
-  const handleSbmit = e => {
-    e.preventDefault();
-    addTask({ name, textCase });
-    setName('');
-    setTextCase('');
-  };
-  const handleChange = e => {
-    e.target.name === 'name'
-      ? setName(e.target.value)
-      : setTextCase(e.target.value);
-  };
-
-  return (
-    <>
-      <form onSubmit={handleSbmit}>
-        <input onChange={handleChange} name="name" value={name} />
-        <input onChange={handleChange} name="textCase" value={textCase} />
-
-        <button>{activIdx !== null ? 'Update Task' : 'Add Task'}</button>
-      </form>
-    </>
-  );
-};
-
-export default Form;
+const TodoForm = () => (
+  <div>
+    <h1>Add Task : </h1>
+    <Formik
+      initialValues={{ name: '', task: '' }}
+      validate={values => {
+        const errors = {};
+        if (!values.name) errors.name = 'Required';
+      }}
+      onSubmit={(values, { setSubmitting }) => {
+        console.log('values', values);
+        console.log('setSubmitting', setSubmitting);
+      }}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <Field type="name" name="name" className="outline" />
+          <ErrorMessage name="name" component="div" />
+          <Field type="task" name="task" className="outline" />
+          <ErrorMessage name="task" component="div" />
+          <button type="submit" disabled={isSubmitting}>
+            Submit
+          </button>
+        </Form>
+      )}
+    </Formik>
+  </div>
+);
+export default TodoForm;

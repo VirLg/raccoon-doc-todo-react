@@ -1,39 +1,15 @@
 import React from 'react';
-import TodoItem from './TodoItem';
-import { useDispatch, useSelector } from 'react-redux';
+import { data } from './data';
 
-import { activ, modalShow, remove, togle } from '../../redux/slice';
-import { activIdxSelector, allSelectors } from '../../redux/selectors';
+import TodoForm from '../form/Form';
+import TodoItem from './TodoItem';
 
 const TodoList = () => {
-  const allTodo = useSelector(allSelectors);
-  const activIdx = useSelector(activIdxSelector);
-  const dispath = useDispatch();
-  const updateTodo = idx => {
-    dispath(modalShow(true));
-  };
-  console.log('updateTodo', updateTodo);
-  return allTodo.map((el, idx) => (
-    <div
-      key={el.id}
-      className="todo"
-      style={{
-        outline: idx === activIdx ? '4px solid blue' : 'none',
-        width: '800px',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-      }}
-    >
-      <TodoItem
-        el={el}
-        idx={idx}
-        removeTodo={() => dispath(remove(el.id))}
-        checked={() => dispath(togle(el.id))}
-        updateTodo={() => dispath(activ(idx))}
-      />
+  return (
+    <div>
+      <TodoForm />
+      <TodoItem data={data} />
     </div>
-  ));
+  );
 };
-
 export default TodoList;
-// update={() => dispath(amend(idx))}
