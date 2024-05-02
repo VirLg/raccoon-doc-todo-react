@@ -1,5 +1,4 @@
 import React from 'react';
-import { data } from './data';
 import { useDispatch } from 'react-redux';
 import { todoAdd } from '../redux/slice';
 import TodoForm from '../form/Form';
@@ -10,9 +9,9 @@ const TodoList = () => {
     dispatch(todoAdd(values));
   };
   return (
-    <div>
+    <div className="max-h-96 bg-gray-100 overflow-auto max-w-[860px] ">
       <TodoForm createTodo={createTodo} />
-      <TodoItem data={data} />
+      <TodoItem />
     </div>
   );
 };

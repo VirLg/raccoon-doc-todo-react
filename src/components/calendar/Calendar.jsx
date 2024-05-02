@@ -22,7 +22,7 @@ const Calendar = () => {
   // numberWeek
   console.log('a', date);
   return (
-    <div className="flex flex-wrap  max-w-[760px]">
+    <div className="flex flex-wrap  max-w-[660px] ml-[90px] mt-[30px]">
       <CalendarItem dayInMonth={dayInMonth} curretDate={curretDate} />
     </div>
   );

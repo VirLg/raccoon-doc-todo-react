@@ -17,7 +17,7 @@ const todoSlice = createSlice({
       state.todo = [...state.todo, action.payload];
     },
     todoRemove(state, action) {
-      state.todo = state.todo.filter((el, idx) => idx !== action.payload);
+      state.todo = state.todo.filter((_, idx) => idx !== action.payload);
     },
   },
 });

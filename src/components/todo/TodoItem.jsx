@@ -4,18 +4,22 @@ import { todosSelector } from '../redux/selector';
 import { useDispatch } from 'react-redux';
 import { todoRemove } from '../redux/slice';
 const TodoItem = ({ data }) => {
-  const selectorTodod = useSelector(todosSelector);
+  const selectorTodo = useSelector(todosSelector);
   const dispatch = useDispatch();
-  const handleClick = idx => {
-    dispatch(todoRemove(idx));
-  };
-  return selectorTodod.map((el, idx) => {
-    return (
-      <div key={idx} className="flex items-center outline m-3">
-        <div className="">{el.name}</div>
 
-        <div>{el.task}</div>
-        <button type="button" onClick={() => dispatch(todoRemove(idx))}>
+  return selectorTodo.map((el, idx) => {
+    return (
+      <div
+        key={idx}
+        className="flex items-center border-2 m-3 h-[54px] bg-gray-50 max-w-[760px] ml-10"
+      >
+        <div className="ml-2 mr-6 text-xs">{el.name}</div>
+        <div className="text-lg">{el.task}</div>
+        <button
+          type="button"
+          onClick={() => dispatch(todoRemove(idx))}
+          className="ml-auto border-2 p-2 m-1 rounded-md "
+        >
           Del
         </button>
       </div>
