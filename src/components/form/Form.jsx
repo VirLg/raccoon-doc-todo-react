@@ -14,7 +14,6 @@ const TodoForm = ({ createTodo }) => (
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         createTodo(values);
-        console.log('values', values);
         setSubmitting(false);
         resetForm();
       }}

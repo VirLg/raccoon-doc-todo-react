@@ -7,7 +7,6 @@ import TodoItem from './TodoItem';
 const TodoList = () => {
   const dispatch = useDispatch();
   const createTodo = values => {
-    console.log('values', values);
     dispatch(todoAdd(values));
   };
   return (
