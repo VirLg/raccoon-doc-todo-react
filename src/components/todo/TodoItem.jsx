@@ -14,7 +14,7 @@ const TodoItem = ({ data }) => {
         className="flex items-center border-2 m-3 h-[54px] bg-gray-50 max-w-[760px] ml-10"
       >
         <div className="ml-2 mr-6 text-xs">{el.name}</div>
-        <div className="text-lg">{el.task}</div>
+        <div className="text-lg overflow-auto">{el.task}</div>
         <button
           type="button"
           onClick={() => dispatch(todoRemove(idx))}
