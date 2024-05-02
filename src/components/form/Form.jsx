@@ -1,25 +1,29 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-const TodoForm = () => (
+const TodoForm = ({ createTodo }) => (
   <div>
-    <h1>Add Task : </h1>
+    <h1>Add Task:</h1>
     <Formik
       initialValues={{ name: '', task: '' }}
       validate={values => {
         const errors = {};
-        if (!values.name) errors.name = 'Required';
+        if (!values.name) errors.name = 'Name is required';
+        if (!values.task) errors.task = 'Task is required';
+        return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        createTodo(values);
         console.log('values', values);
-        console.log('setSubmitting', setSubmitting);
+        setSubmitting(false);
+        resetForm();
       }}
     >
       {({ isSubmitting }) => (
         <Form>
-          <Field type="name" name="name" className="outline" />
+          <Field type="text" name="name" className="outline" />
           <ErrorMessage name="name" component="div" />
-          <Field type="task" name="task" className="outline" />
+          <Field type="text" name="task" className="outline" />
           <ErrorMessage name="task" component="div" />
           <button type="submit" disabled={isSubmitting}>
             Submit
