@@ -8,7 +8,7 @@ const CalendarItem = ({ dayInMonth, curretDate, value }) => {
       <div key={idx} className="">
         <div
           className={`w-[50px] h-[50px] m-2 rounded-lg ${
-            curretDate === idx + 1 ? 'bg-red-400' : 'bg-gray-300'
+            curretDate === idx + 1 ? 'bg-green-400' : 'bg-gray-300'
           }`}
         >
           {el + 1}

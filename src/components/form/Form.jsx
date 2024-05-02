@@ -24,7 +24,11 @@ const TodoForm = ({ createTodo }) => (
           <ErrorMessage name="name" component="div" />
           <Field type="text" name="task" className="outline" />
           <ErrorMessage name="task" component="div" />
-          <button type="submit" disabled={isSubmitting}>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="ml-4  border-2 p-2 m-1 rounded-md"
+          >
             Submit
           </button>
         </Form>
