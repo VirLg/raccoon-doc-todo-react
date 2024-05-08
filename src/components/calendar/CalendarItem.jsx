@@ -1,18 +1,8 @@
 import React from 'react';
 
-const CalendarItem = ({
-  dayInMonth,
-  curretDate,
-  countDaysBeforeMonth,
-  arrCurrentWeek,
-  curretMonts,
-}) => {
-  const currentMonth = [
-    // ...Array(countDaysBeforeMonth),
-    ...Array(dayInMonth),
-  ].map((_, i) => i);
-
-  return curretMonts.map((el, idx) => {
+const CalendarItem = ({ curretDate, curretMonth }) => {
+  console.log('currentMonth', curretMonth);
+  return curretMonth.map((el, idx) => {
     return (
       <div key={idx} className="">
         <div
@@ -28,10 +18,3 @@ const CalendarItem = ({
 };
 
 export default CalendarItem;
-
-//   <div key={idx}>
-//     <div>{date.day}</div>
-//     <div>{date.time}</div>
-//     <div>{value.task.name}</div>
-//     <div>{value.task.time}</div>
-//   </div>;
