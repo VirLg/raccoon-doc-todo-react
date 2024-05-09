@@ -5,9 +5,14 @@ import { useDispatch } from 'react-redux';
 import { todoRemove } from '../redux/slice';
 const TodoItem = ({ data }) => {
   const selectorTodo = useSelector(todosSelector);
+
+  const sotrTodo = selectorTodo.toSorted(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
+
   const dispatch = useDispatch();
 
-  return selectorTodo.map((el, idx) => {
+  return sotrTodo.map((el, idx) => {
     return (
       <div
         key={idx}
