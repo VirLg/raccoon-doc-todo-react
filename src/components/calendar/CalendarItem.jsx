@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CalendarItem = ({ curretDate, curretMonth }) => {
-  console.log('currentMonth', curretMonth);
   return curretMonth.map((el, idx) => {
     return (
       <div key={idx} className="">
