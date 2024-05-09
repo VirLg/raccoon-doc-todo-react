@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const TodoForm = ({ createTodo }) => (
-  <div>
+  <div className="ml-[100px]">
     <h1>Add Task:</h1>
     <Formik
       initialValues={{ name: '', task: '', date: '' }}

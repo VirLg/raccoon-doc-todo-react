@@ -9,7 +9,7 @@ const TodoList = () => {
     dispatch(todoAdd(values));
   };
   return (
-    <div className="max-h-96 bg-gray-100 overflow-auto max-w-[860px] min-h-20">
+    <div className="max-h-96 bg-gray-100 overflow-auto max-w-[860px] min-h-20 ">
       <TodoForm createTodo={createTodo} />
       <TodoItem />
     </div>
