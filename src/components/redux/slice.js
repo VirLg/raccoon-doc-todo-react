@@ -31,21 +31,7 @@ const todoSlice = createSlice({
         todo: updatedTodo,
       };
     },
-    //   todoAdd: (state, action) => {
-    //     let obj;
-    // if (!action.payload.date) {
-    //       obj =  {
-    //         ...action.payload,
-    //         date: '',
-    //       };
-    //     } else {
-    //      obj =  {
-    //         ...action.payload
-    //       }
-    //     }
 
-    //     // state.todo = [...state.todo, action.payload];
-    //   },
     todoRemove(state, action) {
       state.todo = state.todo.filter((_, idx) => idx !== action.payload);
     },
