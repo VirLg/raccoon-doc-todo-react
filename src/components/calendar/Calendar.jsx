@@ -27,7 +27,8 @@ const Calendar = () => {
     firstWeek = [...new Array(dayOfWeek - 1), ...beforeWeek];
 
   const curretMonth = [...firstWeek, ...arrCurrentWeek];
-
+  const m = moment().format('Y-MM-DD');
+  console.log('m', m);
   return (
     <div className="max-w-[860px] pt-[30px]">
       <h2 className="justify-center">Month</h2>

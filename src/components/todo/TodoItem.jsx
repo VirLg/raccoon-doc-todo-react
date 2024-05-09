@@ -13,7 +13,8 @@ const TodoItem = ({ data }) => {
         key={idx}
         className="flex items-center border-2 m-3 h-[54px] bg-gray-50 max-w-[760px] ml-10"
       >
-        <div className="ml-2 mr-6 text-xs">{el.name}</div>
+        <div className="ml-2 mr-4 text-xs">{el.date}</div>
+        <div className=" mr-6 text-xs">{el.name}</div>
         <div className="text-lg overflow-auto">{el.task}</div>
         <button
           type="button"

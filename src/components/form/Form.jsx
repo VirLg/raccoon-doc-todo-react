@@ -5,7 +5,7 @@ const TodoForm = ({ createTodo }) => (
   <div>
     <h1>Add Task:</h1>
     <Formik
-      initialValues={{ name: '', task: '' }}
+      initialValues={{ name: '', task: '', date: '' }}
       validate={values => {
         const errors = {};
         if (!values.name) errors.name = 'Name is required';
