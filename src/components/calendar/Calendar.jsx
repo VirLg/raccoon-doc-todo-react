@@ -5,9 +5,9 @@ import CalendarItem from './CalendarItem';
 const Calendar = () => {
   const curretDate = moment().date();
   const dayInMonth = moment().daysInMonth();
-  const dayOfWeek = moment().day();
+
   const currentDate = moment().date();
-  let firstWeek = [];
+
   const arrCurrentWeek = [];
   for (let i = 1; i < dayInMonth + 1; i += 1) {
     if (i < currentDate) {
@@ -18,16 +18,12 @@ const Calendar = () => {
       arrCurrentWeek.push(i);
     }
   }
-  const beforeWeek = [];
-  for (let i = 1; i < arrCurrentWeek[0]; i += 1) {
-    beforeWeek.push(i);
-  }
 
-  if (!(currentDate % 7 === 0))
-    firstWeek = [...new Array(dayOfWeek - 2), ...beforeWeek];
-  const curretMonth = [...firstWeek, ...arrCurrentWeek];
+  const addItem = (currentDate % 7) - 1 ? (currentDate % 7) - 1 : 0;
+
+  const curretMonth = [...new Array(addItem), ...arrCurrentWeek];
   const m = moment().format('DD-MMM-dddd');
-  console.log('m', m);
+
   return (
     <div className="max-w-[860px] pt-[30px]">
       <h2 className="ml-[100px]">{m}</h2>
