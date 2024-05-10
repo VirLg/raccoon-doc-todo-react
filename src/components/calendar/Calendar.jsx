@@ -25,7 +25,6 @@ const Calendar = () => {
 
   if (!(currentDate % 7 === 0))
     firstWeek = [...new Array(dayOfWeek - 2), ...beforeWeek];
-
   const curretMonth = [...firstWeek, ...arrCurrentWeek];
   const m = moment().format('DD-MMM-dddd');
   console.log('m', m);
