@@ -19,9 +19,10 @@ const Calendar = () => {
     }
   }
 
-  const addItem = (currentDate % 7) - 1 ? (currentDate % 7) - 1 : 0;
+  if (!(currentDate % 7 === 0))
+    firstWeek = [...new Array(dayOfWeek - 2), ...beforeWeek];
 
-  const curretMonth = [...new Array(addItem), ...arrCurrentWeek];
+  const curretMonth = [...firstWeek, ...arrCurrentWeek];
   const m = moment().format('DD-MMM-dddd');
 
   return (
