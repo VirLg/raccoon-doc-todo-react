@@ -18,10 +18,12 @@ const Calendar = () => {
       arrCurrentWeek.push(i);
     }
   }
+  const firstDay = moment().startOf('month').format('d');
 
-  const addItem = (currentDate % 7) - 1 ? (currentDate % 7) - 1 : 0;
+  const addItem = (firstDay % 7) - 1 ? (firstDay % 7) - 1 : 0;
 
   const curretMonth = [...new Array(addItem), ...arrCurrentWeek];
+
   const m = moment().format('DD-MMM-dddd');
 
   return (
